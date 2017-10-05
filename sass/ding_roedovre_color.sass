@@ -1,0 +1,333 @@
+// ==========================================================================
+// Distance
+// ==========================================================================
+$header-height: 148px;
+$topbar-height: 64px;
+$second-level-menu-height: 61px;
+$distance-paragraph: 30px;
+$element-height: 54px;
+$wrapper-width: 90%;
+$search-form-extended-height: 84px;
+$toolbar-height: 65px;
+$colorbar-height: 14px;
+$admin-menu-height: 29px;
+
+
+// ==========================================================================
+// Color
+// ==========================================================================
+$red: #e23403;
+$orange: #f07800;
+$yellow-dark: #eee9a0;
+$yellow: #f4ef87;
+$green-light: #cbf44c;
+$green: #73b400;
+$green-dark: #31483a;
+$grey: #d8d8d7;
+$green-dust: #72a29a;
+$blue: #436971;
+$blue-dark: #001a28;
+
+
+// ==========================================================================
+// Breakpoint
+// ==========================================================================
+$notebook: 1100px;
+$tablet: 950px;
+$mobile: 600px;
+
+// html class is used to make sure theme styling is overwritten
+// Not page-admin is used to avoid css being applied to admin pages
+.html:not(.page-admin) {
+  padding-top: $header-height + $colorbar-height;
+
+  // Toolbar
+  &.toolbar {
+    padding-top: $header-height + $colorbar-height + $colorbar-height !important;
+    &.search-form-extended.front {
+      padding-top: $header-height + $search-form-extended-height + $toolbar-height + $colorbar-height !important;
+    }
+    &.has-second-level-menu {
+      padding-top: $header-height + $second-level-menu-height + $toolbar-height + $colorbar-height !important;
+    }
+  }
+  // Admin menu
+  &.admin-menu {
+    padding-top: $header-height + $colorbar-height !important;
+    &.search-form-extended.front,
+    &.search-form-extended.page-search {
+      padding-top: $header-height + $search-form-extended-height + $colorbar-height !important;
+    }
+    &.has-second-level-menu {
+      padding-top: $header-height + $second-level-menu-height + $colorbar-height !important;
+    }
+  }
+  // When second level menu is visible
+  &.has-second-level-menu {
+    padding-top: $header-height + $second-level-menu-height + $colorbar-height; // Compensate for fixed header
+    // Tablet
+    @media screen and (max-width: $tablet) {
+      padding-top: $header-height + $colorbar-height; // Compensate for fixed header
+    }
+  }
+  // When search form is extended
+  &.search-form-extended.front {
+    padding-top: $header-height + $search-form-extended-height + $colorbar-height; // Compensate for fixed header
+    // Tablet
+    @media screen and (max-width: $tablet) {
+      padding-top: $header-height + $colorbar-height; // Compensate for fixed header
+    }
+    // When second level menu is visible & search form is extended
+    &.has-second-level-menu {
+      padding-top: $header-height + $search-form-extended-height + $second-level-menu-height + $colorbar-height; // Compensate for fixed header
+      // Tablet
+      @media screen and (max-width: $tablet) {
+        padding-top: $header-height + $colorbar-height; // Compensate for fixed header
+      }
+    }
+  }
+
+  .site-header {
+    .topbar {
+      &::before {
+        content: '';
+        position: relative;
+        z-index: 100;
+        display: block;
+        width: 100%;
+        height: $colorbar-height;
+        background: url(../images/color-band.png);
+        background-size: 100% auto;
+        background-repeat-x: no-repeat;
+      }
+    }
+    > .header-wrapper {
+      top: $topbar-height + $colorbar-height;
+      .header-inner {
+        .pane-search-form {
+          // Search Form Extended & toolbar
+          @at-root .search-form-extended.toolbar#{&} {
+            top: $toolbar-height + $colorbar-height - 20px;
+          }
+          // Search Form Extended & admin-menu
+          @at-root .search-form-extended.admin-menu#{&} {
+            top: $admin-menu-height + $colorbar-height - 20px;
+          }
+          // Search Form Extended on frontpage
+          @at-root .search-form-extended.front#{&} {
+            top: $topbar-height + $colorbar-height;
+          }
+          // Search Form Extended on frontpage with toolbar
+          @at-root .search-form-extended.front.toolbar#{&} {
+            top: $topbar-height + $toolbar-height + $colorbar-height;
+          }
+          // Search Form Extended on frontpage with admin-menu
+          @at-root .search-form-extended.front.admin-menu#{&} {
+            top: $topbar-height + $admin-menu-height + $colorbar-height;
+          }
+          // Extended search open
+          @at-root .extended-search-is-open#{&} {
+            top: $topbar-height + $colorbar-height;
+          }
+          // Extended search open with toolbar
+          @at-root .extended-search-is-open.toolbar#{&} {
+            top: $topbar-height + $toolbar-height + $colorbar-height;
+          }
+          // Extended search open with admin-menu
+          @at-root .extended-search-is-open.admin-menu#{&} {
+            top: $topbar-height + $admin-menu-height + $colorbar-height;
+          }
+          // Mobile search open
+          @at-root .mobile-search-is-open#{&} {
+            top: $header-height + $colorbar-height !important;
+          }
+        }
+      }
+    }
+    > .navigation-wrapper {
+      top: $topbar-height + $colorbar-height;
+
+      // Toolbar
+      @at-root .toolbar#{&} {
+        top: $topbar-height + $toolbar-height + $colorbar-height;
+      }
+      // Admin-menu
+      @at-root .admin-menu#{&} {
+        top: $topbar-height + $admin-menu-height + $colorbar-height;
+      }
+      // Search Form Extended
+      @at-root .search-form-extended#{&} {
+        top: $topbar-height + $colorbar-height;
+      }
+      // Search Form Extended with toolbar
+      @at-root .search-form-extended.toolbar#{&} {
+        top: $topbar-height + $toolbar-height + $colorbar-height;
+      }
+      // Search Form Extended with admin-menu
+      @at-root .search-form-extended.admin-menu#{&} {
+        top: $topbar-height + $admin-menu-height + $colorbar-height;
+      }
+      // Search Form Extended on frontpage
+      @at-root .search-form-extended.front#{&} {
+        top: $topbar-height + $search-form-extended-height + $colorbar-height;
+      }
+      // Search Form Extended on frontpage with toolbar
+      @at-root .search-form-extended.front.toolbar#{&} {
+        top: $topbar-height + $search-form-extended-height + $toolbar-height + $colorbar-height;
+      }
+      // Search Form Extended on frontpage with admin-menu
+      @at-root .search-form-extended.front.admin-menu#{&} {
+        top: $topbar-height + $search-form-extended-height + $admin-menu-height + $colorbar-height;
+      }
+      // Extended search open
+      @at-root .extended-search-is-open#{&} {
+        top: $topbar-height + $search-form-extended-height + $colorbar-height;
+      }
+      // Extended search open with toolbar
+      @at-root .extended-search-is-open.toolbar#{&} {
+        top: $topbar-height + $search-form-extended-height + $toolbar-height + $colorbar-height;
+      }
+      // Extended search open with admin-menu
+      @at-root .extended-search-is-open.admin-menu#{&} {
+        top: $topbar-height + $search-form-extended-height + $admin-menu-height + $colorbar-height;
+      }
+      .navigation-inner {
+        // Tablet
+        @media screen and (max-width: $tablet) {
+          top: $header-height + $colorbar-height;
+        }
+      }
+
+      .navigation-inner .pane-menu-block-main-menu-second-level {
+        top: $header-height + $colorbar-height;
+        @at-root .toolbar#{&} {
+          top: $header-height + $toolbar-height + $colorbar-height;
+        }
+        @at-root .admin-menu#{&} {
+          top: $header-height + $admin-menu-height + $colorbar-height;
+        }
+      }
+    }
+    // Hide and show on mobile
+    &.topbar-up {
+      .topbar {
+        -webkit-transform: translateY(-78px);
+        -moz-transform: translateY(-78px);
+        -ms-transform: translateY(-78px);
+        -o-transform: translateY(-78px);
+        transform: translateY(-78px);
+      }
+    }
+  }
+
+  &.pane-login-is-open {
+    .pane-user-login {
+      // Tablet
+      @media screen and (max-width: $tablet) {
+        -webkit-transform: translateY(162px);
+        -moz-transform: translateY(162px);
+        -ms-transform: translateY(162px);
+        -o-transform: translateY(162px);
+        transform: translateY(162px);
+      }
+    }
+  }
+
+  .footer {
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: $colorbar-height;
+      background: $red;
+      -moz-linear-background-image:
+        linear-gradient(
+          to right,
+          $red 0%,
+          $red 9.09%,
+          $orange 9.09%,
+          $orange 18.18%,
+          $yellow-dark 18.18%,
+          $yellow-dark 27.27%,
+          $yellow 27.27%,
+          $yellow 36.36%,
+          $green-light 36.36%,
+          $green-light 45.45%,
+          $green 45.45%,
+          $green 54.54%,
+          $green-dark 54.54%,
+          $green-dark 63.63%,
+          $grey 63.63%,
+          $grey 72.72%,
+          $green-dust 72.72%,
+          $green-dust 81.81%,
+          $blue 81.81%,
+          $blue 90.9%,
+          $blue-dark 90.9%,
+          $blue-dark 100%
+        );
+      -webkit-linear-background-image:
+        linear-gradient(
+          to right,
+          $red 0%,
+          $red 9.09%,
+          $orange 9.09%,
+          $orange 18.18%,
+          $yellow-dark 18.18%,
+          $yellow-dark 27.27%,
+          $yellow 27.27%,
+          $yellow 36.36%,
+          $green-light 36.36%,
+          $green-light 45.45%,
+          $green 45.45%,
+          $green 54.54%,
+          $green-dark 54.54%,
+          $green-dark 63.63%,
+          $grey 63.63%,
+          $grey 72.72%,
+          $green-dust 72.72%,
+          $green-dust 81.81%,
+          $blue 81.81%,
+          $blue 90.9%,
+          $blue-dark 90.9%,
+          $blue-dark 100%
+        );
+      background-image:
+        linear-gradient(
+          to right,
+          $red 0%,
+          $red 9.09%,
+          $orange 9.09%,
+          $orange 18.18%,
+          $yellow-dark 18.18%,
+          $yellow-dark 27.27%,
+          $yellow 27.27%,
+          $yellow 36.36%,
+          $green-light 36.36%,
+          $green-light 45.45%,
+          $green 45.45%,
+          $green 54.54%,
+          $green-dark 54.54%,
+          $green-dark 63.63%,
+          $grey 63.63%,
+          $grey 72.72%,
+          $green-dust 72.72%,
+          $green-dust 81.81%,
+          $blue 81.81%,
+          $blue 90.9%,
+          $blue-dark 90.9%,
+          $blue-dark 100%
+        );
+    }
+  }
+}
+
+
+
+
+
+
+//background: #1e5799; /* Old browsers */
+//background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
+//background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+//background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */

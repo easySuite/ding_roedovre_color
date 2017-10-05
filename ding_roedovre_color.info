@@ -1,0 +1,5 @@
+name = Roedovre Theme Extension
+description = Adds two color-bands. One in the header and one above the footer
+core = 7.x
+
+stylesheets[all][] = sass_css/ding_roedovre_color.css
