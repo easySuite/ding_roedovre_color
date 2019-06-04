@@ -48,19 +48,27 @@ $mobile: 600px;
     &.search-form-extended.not-front  {
       padding-top: $header-height + $search-form-extended-height + $toolbar-height + $colorbar-height !important;
     }
+  
+    &.search-form-extended.not-front.extended-search-is-not-open  {
+      padding-top: $header-height + $search-form-extended-height + $toolbar-height + $colorbar-height !important;
+    }
     &.has-second-level-menu {
       padding-top: $header-height + $second-level-menu-height + $toolbar-height + $colorbar-height !important;
     }
   }
   // Admin menu
   &.admin-menu {
-    padding-top: $header-height + $colorbar-height !important;
+   padding-top: $header-height + $colorbar-height !important;
     &.search-form-extended.front,
     &.search-form-extended.page-search {
       padding-top: $header-height + $search-form-extended-height + $colorbar-height !important;
     }
     &.has-second-level-menu {
       padding-top: $header-height + $second-level-menu-height + $colorbar-height !important;
+    }
+
+     &.search-form-extended.not-front.extended-search-is-not-open, {
+      padding-top: $header-height + $colorbar-height; // Compensate for fixed header
     }
   }
   // When second level menu is visible
@@ -73,7 +81,7 @@ $mobile: 600px;
   }
   // When search form is extended
   &.search-form-extended.front,
-   &.search-form-extended.not-front {
+  &.search-form-extended.not-front {
     padding-top: $header-height + $search-form-extended-height + $colorbar-height; // Compensate for fixed header
     // Tablet
     @media screen and (max-width: $tablet) {
@@ -87,6 +95,9 @@ $mobile: 600px;
         padding-top: $header-height + $colorbar-height; // Compensate for fixed header
       }
     }
+  }
+  &.search-form-extended.not-front.extended-search-is-not-open, {
+    padding-top: $header-height + $colorbar-height; // Compensate for fixed header
   }
 
   .site-header {
@@ -105,6 +116,7 @@ $mobile: 600px;
     }
     > .header-wrapper {
       top: $topbar-height + $colorbar-height;
+
       .header-inner {
         .pane-search-form {
           // Search Form Extended & toolbar
@@ -113,14 +125,17 @@ $mobile: 600px;
           }
           // Search Form Extended & admin-menu
           @at-root .search-form-extended.admin-menu#{&} {
-            top: $admin-menu-height + $colorbar-height - 20px;
+            top: $admin-menu-height + $colorbar-height + $header-height + 20px;
           }
           // Search Form Extended on frontpage
           @at-root .search-form-extended.front#{&} {
-             top: $topbar-height + $colorbar-height;
+            top: $topbar-height + $colorbar-height;
           }
           @at-root .search-form-extended.not-front#{&} {
-            top: $topbar-height + $colorbar-height;
+            top: $header-height + $colorbar-height;
+          }
+          @at-root .search-form-extended.not-front.extended-search-is-not-open#{&} {
+            top: $toolbar-height + $colorbar-height - 5px;
           }
           // Search Form Extended on frontpage with toolbar
           @at-root .search-form-extended.front.toolbar#{&} {
@@ -133,8 +148,11 @@ $mobile: 600px;
           @at-root .search-form-extended.front.admin-menu#{&} {
             top: $topbar-height + $admin-menu-height + $colorbar-height;
           }
+          @at-root .search-form-extended.not-front.admin-menu.extended-search-is-not-open#{&} {
+            top: $topbar-height + $colorbar-height;
+          }
           @at-root .search-form-extended.not-front.admin-menu#{&} {
-            top: $topbar-height + $admin-menu-height + $colorbar-height;
+            top: $header-height + $admin-menu-height + $colorbar-height;
           }
           // Extended search open
           @at-root .extended-search-is-open#{&} {
@@ -156,6 +174,10 @@ $mobile: 600px;
       }
     }
     > .navigation-wrapper {
+       @media screen and (max-width: $tablet) {
+        top: auto;
+      }
+
       top: $topbar-height + $colorbar-height;
 
       // Toolbar
@@ -205,7 +227,7 @@ $mobile: 600px;
       .navigation-inner {
         // Tablet
         @media screen and (max-width: $tablet) {
-          top: $header-height + $colorbar-height;
+          top: 0;
         }
       }
 
