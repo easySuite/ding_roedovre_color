@@ -10,12 +10,12 @@
   padding-top: 311px !important;
 }
 
-.html:not(.page-admin).toolbar.has-second-level-menu {
-  padding-top: 288px !important;
+.html:not(.page-admin).toolbar.search-form-extended.not-front.extended-search-is-not-open {
+  padding-top: 311px !important;
 }
 
-.html:not(.page-admin).admin-menu {
-  padding-top: 162px !important;
+.html:not(.page-admin).toolbar.has-second-level-menu {
+  padding-top: 288px !important;
 }
 
 .html:not(.page-admin).admin-menu.search-form-extended.front, .html:not(.page-admin).admin-menu.search-form-extended.page-search {
@@ -24,6 +24,10 @@
 
 .html:not(.page-admin).admin-menu.has-second-level-menu {
   padding-top: 223px !important;
+}
+
+.html:not(.page-admin).admin-menu.search-form-extended.not-front.extended-search-is-not-open {
+  padding-top: 162px;
 }
 
 .html:not(.page-admin).has-second-level-menu {
@@ -56,6 +60,10 @@
   }
 }
 
+.html:not(.page-admin).search-form-extended.not-front.extended-search-is-not-open {
+  padding-top: 162px;
+}
+
 .html:not(.page-admin) .site-header .topbar::before {
   content: '';
   position: relative;
@@ -77,7 +85,7 @@
 }
 
 .search-form-extended.admin-menu.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
-  top: 23px;
+  top: 211px;
 }
 
 .search-form-extended.front.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
@@ -85,7 +93,11 @@
 }
 
 .search-form-extended.not-front.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
-  top: 78px;
+  top: 162px;
+}
+
+.search-form-extended.not-front.extended-search-is-not-open.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
+  top: 74px;
 }
 
 .search-form-extended.front.toolbar.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
@@ -100,8 +112,12 @@
   top: 107px;
 }
 
+.search-form-extended.not-front.admin-menu.extended-search-is-not-open.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
+  top: 78px;
+}
+
 .search-form-extended.not-front.admin-menu.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
-  top: 107px;
+  top: 191px;
 }
 
 .extended-search-is-open.html:not(.page-admin) .site-header > .header-wrapper .header-inner .pane-search-form {
@@ -122,6 +138,12 @@
 
 .html:not(.page-admin) .site-header > .navigation-wrapper {
   top: 78px;
+}
+
+@media screen and (max-width: 950px) {
+  .html:not(.page-admin) .site-header > .navigation-wrapper.has-touch.html:not(.page-admin) .site-header > .navigation-wrapper {
+      top: auto;
+  }
 }
 
 .toolbar.html:not(.page-admin) .site-header > .navigation-wrapper {
@@ -170,7 +192,7 @@
 
 @media screen and (max-width: 950px) {
   .html:not(.page-admin) .site-header > .navigation-wrapper .navigation-inner {
-      top: 162px;
+      top: 0;
   }
 }
 
